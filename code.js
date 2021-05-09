@@ -87,10 +87,15 @@ function draw()
     text("Target:   " + currentPhrase, width/2-100, 100); //draw the target string
     text("Entered:  " + currentTyped + "|", width/2-100, 140); //draw what the user has entered thus far 
     //draw very basic next button
-    fill(255, 0, 0);
-    rect(600, 600, 200, 200); //draw next button
+    if (currentPhrase == currentTyped) {
+      fill(0, 255, 0);
+    }
+    else {
+      fill(255, 0, 0);
+    }
+    rect(width/2+createCanvasOfInputArea/2, height/2-createCanvasOfInputArea/2, createCanvasOfInputArea, createCanvasOfInputArea); //draw next button
     fill(255);
-    text("NEXT > ", 650, 650); //draw next label
+    text("NEXT > ", width/2+3*createCanvasOfInputArea/4, height/2); //draw next label
 
     fill(200);
     for(col = 0; col < 6; col++) {
@@ -141,7 +146,7 @@ function singleTap()
   }
 
   //You are allowed to have a next button outside the 1" area
-  if (didMouseClick(600, 600, 200, 200)) //check if click is in next button
+  if (didMouseClick(width/2+createCanvasOfInputArea/2, height/2-createCanvasOfInputArea/2, createCanvasOfInputArea, createCanvasOfInputArea)) //check if click is in next button
   {
     nextTrial(); //if so, advance to next trial
   }
