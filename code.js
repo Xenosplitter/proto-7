@@ -1,4 +1,4 @@
-dpi_x = prompt("Please enter your device DPI: ")
+dpi_x = prompt("Please enter your device DPI (this is 96 on most desktops, but varies greatly on mobile devices): ")
 document.getElementById('testdiv').innerHTML = "DPI: " + dpi_x.toString()
 screenWidth = document.getElementById('sizer').offsetWidth;
 screenHeight = document.getElementById('sizer').offsetHeight;
