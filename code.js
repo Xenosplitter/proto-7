@@ -94,24 +94,20 @@ function draw()
     for(col = 0; col < 6; col++) {
         for(row = 0; row < 5; row++) {
             if(col == 5 && row > 2) continue;
-            rect(width/2-createCanvasOfInputArea/2+row*createCanvasOfInputArea/5, height/2-createCanvasOfInputArea/2+col*createCanvasOfInputArea/6, createCanvasOfInputArea/5, createCanvasOfInputArea/6)
-            fill(0)
-            text(String.fromCharCode(col*5+row+95), width/2-createCanvasOfInputArea/2+row*createCanvasOfInputArea/5+createCanvasOfInputArea/10, height/2-createCanvasOfInputArea/2+col*createCanvasOfInputArea/6+createCanvasOfInputArea/25, createCanvasOfInputArea/5, createCanvasOfInputArea/6)
-            fill(200)
+            // if mouse pressed within button, change fill
+            if(mouseIsPressed && didMouseClick(width/2-createCanvasOfInputArea/2+row*createCanvasOfInputArea/5, height/2-createCanvasOfInputArea/2+col*createCanvasOfInputArea/6, createCanvasOfInputArea/5, createCanvasOfInputArea/6)) {
+              fill(0, 127, 0);
+            }
+            else {
+              fill(200);
+            }
+            rect(width/2-createCanvasOfInputArea/2+row*createCanvasOfInputArea/5, height/2-createCanvasOfInputArea/2+col*createCanvasOfInputArea/6, createCanvasOfInputArea/5, createCanvasOfInputArea/6);
+            fill(0);
+            text(String.fromCharCode(col*5+row+95), width/2-createCanvasOfInputArea/2+row*createCanvasOfInputArea/5+createCanvasOfInputArea/10, height/2-createCanvasOfInputArea/2+col*createCanvasOfInputArea/6+createCanvasOfInputArea/25, createCanvasOfInputArea/5, createCanvasOfInputArea/6);
         }
     }
     textAlign(CENTER);
-/*
-    //my draw code that you should replace.
-    fill(255, 0, 0); //red button
-    rect(width/2-createCanvasOfInputArea/2, height/2-createCanvasOfInputArea/2+createCanvasOfInputArea/2, createCanvasOfInputArea/2, createCanvasOfInputArea/2); //draw left red button
-    fill(0, 255, 0); //green button
-    rect(width/2-createCanvasOfInputArea/2+createCanvasOfInputArea/2, height/2-createCanvasOfInputArea/2+createCanvasOfInputArea/2, createCanvasOfInputArea/2, createCanvasOfInputArea/2); //draw right green button
-    t
-    fill(200);
-    text(currentLetter, width/2, height/2-createCanvasOfInputArea/4); //draw current letter
-  }*/
-}
+  }
 }
 
 function didMouseClick(x, y, w, h) //simple function to do hit testing
@@ -138,9 +134,9 @@ function singleTap()
             currentTyped = currentTyped.substring(0, currentTyped.length-1);
             else if (currentLetter!='`') //if not any of the above cases, add the current letter to the typed string
             currentTyped = currentTyped + currentLetter;
-            }
         }
     }
+  }
 
   //You are allowed to have a next button outside the 1" area
   if (didMouseClick(600, 600, 200, 200)) //check if click is in next button
@@ -149,7 +145,6 @@ function singleTap()
   }
 
 }
-
 
 function nextTrial()
 {
