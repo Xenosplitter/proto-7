@@ -82,10 +82,10 @@ function draw()
     //you can very slightly adjust the position of the target/entered phrases and next button
     textAlign(LEFT); //align the text left
     fill(128);
-    text("Phrase " + (currTrialNum+1) + " of " + totalTrialNum, width/2-100, 50); //draw the trial count
+    text("Phrase " + (currTrialNum+1) + " of " + totalTrialNum, width/2-100, height/2-3*createCanvasOfInputArea); //draw the trial count
     fill(128);
-    text("Target:   " + currentPhrase, width/2-100, 100); //draw the target string
-    text("Entered:  " + currentTyped + "|", width/2-100, 140); //draw what the user has entered thus far 
+    text("Target:   " + currentPhrase, width/2-100, height/2-3*createCanvasOfInputArea+20); //draw the target string
+    text("Entered:  " + currentTyped + "|", width/2-100, height/2-3*createCanvasOfInputArea+40); //draw what the user has entered thus far 
     //draw very basic next button
     if (currentPhrase == currentTyped) {
       fill(0, 255, 0);
