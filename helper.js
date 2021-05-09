@@ -22,7 +22,8 @@ function mouseReleased(e) {
   if( isTouchDevice() )
     return;
 
-  if(mousePressX == mouseX && mousePressY == mouseY)
+  // changed to give 4x4 allowance to user before considering an input a tap vs a drag
+  if((mousePressX >= mouseX - 2 || mousePressX < mouseX + 2) && (mousePressY >= mouseY - 2 || mousePressY < mouseY + 2))
     singleTap();
 
 }
